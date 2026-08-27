@@ -1,0 +1,14 @@
+# Python 3.11 is recommended.
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.14.1
+scikit-learn==1.5.2
+sentence-transformers==3.3.1
+umap-learn==0.5.7
+hdbscan==0.8.40
+bertopic==0.17.4
+fastopic==1.0.1
+topmost==1.0.2
+beautifulsoup4==4.12.3
+PyYAML==6.0.2
+torch>=2.2,<3.0

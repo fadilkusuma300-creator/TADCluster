@@ -1,0 +1,56 @@
+seed: 42
+
+geometry:
+  model_name: sentence-transformers/all-MiniLM-L6-v2
+  umap_components: 50
+  umap_neighbors: 15
+  umap_metric: cosine
+  embedding_batch_size: 64
+
+dbscan:
+  min_samples: 5
+  reference_size: 500
+  kth_neighbor: 5
+  epsilon_multiplier: 1.5
+
+hdbscan:
+  cluster_selection_method: eom
+
+half_life:
+  percentile: 20
+  sample_pairs: 10000
+  fixed_days: 30
+
+selection:
+  calibration_fraction: 0.20
+  alpha_grid: [0, 0.5, 0.7, 0.8, 1.0, 1.5, 2.0, 2.5, 3.0, 5.0]
+  bertopic_min_cluster_size: [5, 10, 15, 20, 30, 50]
+  bertopic_min_samples: [5, 10, 15]
+  fastopic_topics: [10, 20, 30, 40, 50, 75]
+
+matched:
+  min_cluster_size: [5, 10, 20, 30, 40, 50]
+  min_samples: [3, 5, 10]
+
+metrics:
+  top_terms: 8
+
+sensitivity:
+  d1_alpha: 1.0
+  epsilon_grid: [0.284, 0.405, 0.527, 0.648, 0.770, 0.891, 1.013, 1.134]
+
+statistics:
+  repeats: 30
+  resample_fraction: 0.80
+  bootstrap_samples: 10000
+  comparators:
+    D2: FASTopic
+    D1: FASTopic
+    D3: HDBSCAN
+
+fastopic:
+  device: cpu
+  epochs: 200
+  learning_rate: 0.002
+  low_memory: false
+  low_memory_batch_size: null
